@@ -1,0 +1,15 @@
+@layer base {
+  html,
+  body {
+    @apply h-full;
+  }
+
+  section {
+    @apply main-space-x;
+  }
+
+  main {
+    padding-top: var(--header-height);
+    padding-bottom: var(--header-height);
+  }
+}
