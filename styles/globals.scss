@@ -3,4 +3,8 @@
 @import "./base/layout";
 
 @tailwind components;
+@import "./components/_button";
+@import "./components/_card";
+@import "./components/_tag";
+
 @tailwind utilities;

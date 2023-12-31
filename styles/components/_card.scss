@@ -1,0 +1,118 @@
+@use "sass:selector";
+
+@mixin card-color($bg-color, $border-color, $text-color) {
+  background-color: $bg-color;
+
+  @if $text-color {
+    color: $text-color;
+  }
+
+  &::after {
+    border-color: $border-color;
+  }
+}
+
+@mixin card-variant(
+  $bg-color,
+  $border-color,
+  $text-color,
+  $active-bg-color,
+  $active-border-color,
+  $active-text-color: $text-color
+) {
+  @include card-color($bg-color, $border-color, $text-color);
+
+  &:not(:disabled) {
+    &:active,
+    &.active {
+      @include card-color(
+        $active-bg-color,
+        $active-border-color,
+        $active-text-color
+      );
+    }
+
+    @media (hover: hover) {
+      &:hover:not(.no-hover) {
+        @include card-color(
+          $active-bg-color,
+          $active-border-color,
+          $active-text-color
+        );
+      }
+    }
+  }
+}
+
+@mixin card-rounder($key, $size) {
+  &#{selector-append(&,'-rounder-#{$key}')} {
+    border-radius: $size;
+
+    &::after {
+      border-radius: $size;
+    }
+  }
+}
+
+.card {
+  @apply w-full cursor-pointer rounded-md p-5 shadow-lg transition;
+
+  &.primary {
+    @include card-variant(
+      theme("colors.slate.100"),
+      theme("colors.slate.100"),
+      theme("colors.black"),
+      theme("colors.slate.200 / 75%"),
+      theme("colors.slate.200 / 75%"),
+      theme("colors.black")
+    );
+  }
+
+  &.success {
+    @include card-variant(
+      theme("colors.green.200"),
+      theme("colors.green.200"),
+      theme("colors.black"),
+      theme("colors.green.200 / 75%"),
+      theme("colors.green.200 / 75%"),
+      theme("colors.black")
+    );
+  }
+
+  &.warn {
+    @include card-variant(
+      theme("colors.yellow.200"),
+      theme("colors.yellow.200"),
+      theme("colors.black"),
+      theme("colors.yellow.200 / 75%"),
+      theme("colors.yellow.200 / 75%"),
+      theme("colors.black")
+    );
+  }
+
+  &.danger {
+    @include card-variant(
+      theme("colors.red.200"),
+      theme("colors.red.200"),
+      theme("colors.black"),
+      theme("colors.red.200 / 75%"),
+      theme("colors.red.200 / 75%"),
+      theme("colors.black")
+    );
+  }
+
+  &.warn,
+  &.danger {
+    @apply cursor-not-allowed;
+  }
+
+  /* ROUNDER */
+  @include card-rounder("default", theme("spacing.1"));
+  @include card-rounder("sm", theme("spacing[0.5]"));
+  @include card-rounder("lg", theme("spacing[2]"));
+  @include card-rounder("xl", theme("spacing[3]"));
+  @include card-rounder("2xl", theme("spacing[4]"));
+  @include card-rounder("3xl", theme("spacing[6]"));
+  @include card-rounder("full", 9999px);
+  @include card-rounder("none", 0px);
+}

@@ -4,12 +4,13 @@ export type ButtonVariant =
   | "none"
   | "default"
   | "primary"
-  | "secondary"
+  | "second"
   | "success"
   | "warn"
-  | "danger"
-  | "milk-pink";
+  | "danger";
+
 export type ButtonSize = "default" | "none";
+
 export type ButtonRounder =
   | "default"
   | "sm"

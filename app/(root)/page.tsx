@@ -2,14 +2,18 @@ import React, { Fragment } from "react";
 
 import clsx from "clsx";
 
+import BannerSection from "@/components/Section/Banner";
+import HowtoUseSection from "@/components/Section/HowtoUse";
+import WashingMachineSection from "@/components/Section/WashingMachine";
+
 const HomePage = () => {
   return (
     <Fragment>
-      <section>
-        <div className={clsx([`container`])}>
-          <p>Hello</p>
-        </div>
-      </section>
+      <div className={clsx([`space-y-20`])}>
+        <BannerSection />
+        <HowtoUseSection />
+        <WashingMachineSection />
+      </div>
     </Fragment>
   );
 };

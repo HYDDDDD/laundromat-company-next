@@ -54,31 +54,6 @@ module.exports = {
         base: ["1rem", { lineHeight: "1.5" }],
       },
       colors: {
-        primary: {
-          100: "#e7f1ef",
-          200: "#d0e3de",
-          300: "#b8d5ce",
-          400: "#a1c7bd",
-          500: "#89b9ad", //MAIN
-          600: "#6e948a",
-          700: "#526f68",
-          800: "#374a45",
-          900: "#1b2523",
-        },
-        secondary: {
-          100: "#fffbf7",
-          200: "#fff7ef",
-          300: "#fff3e8",
-          400: "#ffefe0",
-          500: "#ffebd8", //MAIN
-          600: "#ccbcad",
-          700: "#998d82",
-          800: "#665e56",
-          900: "#332f2b",
-        },
-        milkPink: {
-          500: "#ffc5c5",
-        },
         danger: {
           500: "#ff0000",
         },
@@ -94,6 +69,14 @@ module.exports = {
         stroke: {
           500: "#a0aac3",
         },
+      },
+
+      width: {
+        "560": "560px",
+      },
+
+      height: {
+        "560": "560px",
       },
 
       spacing: {

@@ -1,0 +1,28 @@
+@use "sass:selector";
+
+@mixin tag-space($padding-x, $padding-y) {
+  padding-top: $padding-y;
+  padding-bottom: $padding-y;
+  padding-left: $padding-x;
+  padding-right: $padding-x;
+}
+
+.tag {
+  @apply flex w-fit items-center justify-center rounded-full bg-sky-200;
+
+  &.default {
+    @include tag-space(theme("padding.0"), theme("padding.0"));
+  }
+
+  &.sm {
+    @include tag-space(theme("padding.4"), theme("padding.2"));
+  }
+
+  &.md {
+    @include tag-space(theme("padding.6"), theme("padding.3"));
+  }
+
+  &.lg {
+    @include tag-space(theme("padding.8"), theme("padding.4"));
+  }
+}
