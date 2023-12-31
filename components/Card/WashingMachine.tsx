@@ -10,6 +10,7 @@ import { IWashingMachine } from "@/types/washing-machine-types";
 import Card from "../UI/Card";
 
 const WashingMachineCard = ({
+  id,
   name,
   status,
   weight,
@@ -19,7 +20,7 @@ const WashingMachineCard = ({
   return (
     <Fragment>
       {status === "ว่าง" ? (
-        <Link href="/washing-machine">
+        <Link href={`/washing-machine/${id}`}>
           <Card
             variant="primary"
             className={clsx([
@@ -45,12 +46,12 @@ const WashingMachineCard = ({
                   {status}
                 </p>
               </div>
+
               <p>ความจุ {weight} kg</p>
               <p>
                 เครื่องนี้ใช้{" "}
                 <span className={clsx(`text-body-16`)}>{used}</span> coins{" "}
               </p>
-
               <p>
                 เครื่องนี้สามารถใช้เหรียญ <span>{coins.join(" , ")}</span>
               </p>

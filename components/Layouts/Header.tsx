@@ -31,15 +31,17 @@ const Header = () => {
         )}
       >
         <div className={clsx(`container flex items-center justify-between`)}>
-          <div className={clsx(`flex items-center justify-center space-x-2`)}>
-            <Image
-              src={BubblePng}
-              alt="bubble png icon"
-              width={50}
-              height={50}
-            />
-            <p className={clsx([`text-header-4 text-blue-400`])}>Laundry</p>
-          </div>
+          <Link href="/">
+            <div className={clsx(`flex items-center justify-center space-x-2`)}>
+              <Image
+                src={BubblePng}
+                alt="bubble png icon"
+                width={50}
+                height={50}
+              />
+              <p className={clsx([`text-header-4 text-blue-400`])}>Laundry</p>
+            </div>
+          </Link>
 
           <div
             className={clsx(`hidden`, `lg:flex`)}
@@ -55,31 +57,58 @@ const Header = () => {
                 />
               </div>
             ) : (
-              <div className={clsx(`transition-all`)}>
-                <Image
-                  src={MenuPng}
-                  alt="menu png icon"
-                  width={25}
-                  height={25}
-                />
-              </div>
+              <Fragment>
+                {pathName === "/" && (
+                  <div className={clsx(`transition-all`)}>
+                    <Image
+                      src={MenuPng}
+                      alt="menu png icon"
+                      width={25}
+                      height={25}
+                    />
+                  </div>
+                )}
+              </Fragment>
             )}
           </div>
 
-          <div className={clsx([`flex items-center space-x-5`, `lg:hidden`])}>
-            <Link
-              href={"/"}
-              className={clsx({ [`text-body-16`]: pathName === "/" })}
-            >
-              <p>Home</p>
-            </Link>
-            <Link href={"#"}>
-              <p>How to use</p>
-            </Link>
-            <Link href={"#"}>
-              <p>Washing</p>
-            </Link>
-          </div>
+          {pathName === "/" && (
+            <div className={clsx([`flex items-center space-x-5`, `lg:hidden`])}>
+              <ReactScrollLink
+                activeClass="active"
+                to="home"
+                spy={true}
+                smooth={true}
+                offset={-76}
+                duration={500}
+                className={clsx(`list`)}
+              >
+                <p>Home</p>
+              </ReactScrollLink>
+              <ReactScrollLink
+                activeClass="active"
+                to="howToUse"
+                spy={true}
+                smooth={true}
+                offset={-76}
+                duration={500}
+                className={clsx(`list`)}
+              >
+                <p>How to use</p>
+              </ReactScrollLink>
+              <ReactScrollLink
+                activeClass="active"
+                to="washing"
+                spy={true}
+                smooth={true}
+                offset={-76}
+                duration={500}
+                className={clsx(`list`)}
+              >
+                <p>Washing</p>
+              </ReactScrollLink>
+            </div>
+          )}
         </div>
       </header>
 
@@ -90,20 +119,39 @@ const Header = () => {
           `lg:flex`,
         )}
       >
-        <Link
-          href={"/"}
-          className={clsx({
-            [`w-full p-2 text-center text-body-16`]: pathName === "/",
-          })}
+        <ReactScrollLink
+          activeClass="active"
+          to="home"
+          spy={true}
+          smooth={true}
+          offset={-76}
+          duration={500}
+          className={clsx(`list`, `w-full p-2 text-center`)}
         >
           <p>Home</p>
-        </Link>
-        <Link href={"#"} className={clsx(`w-full p-2 text-center`)}>
+        </ReactScrollLink>
+        <ReactScrollLink
+          activeClass="active"
+          to="howToUse"
+          spy={true}
+          smooth={true}
+          offset={-76}
+          duration={500}
+          className={clsx(`list`, `w-full p-2 text-center`)}
+        >
           <p>How to use</p>
-        </Link>
-        <Link href={"#"} className={clsx(`w-full p-2 text-center`)}>
+        </ReactScrollLink>
+        <ReactScrollLink
+          activeClass="active"
+          to="washing"
+          spy={true}
+          smooth={true}
+          offset={-76}
+          duration={500}
+          className={clsx(`list`, `w-full p-2 text-center`)}
+        >
           <p>Washing</p>
-        </Link>
+        </ReactScrollLink>
       </div>
     </Fragment>
   );

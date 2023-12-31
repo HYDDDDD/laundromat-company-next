@@ -2,29 +2,13 @@ import React from "react";
 
 import clsx from "clsx";
 
-import { IWashingMachine } from "@/types/washing-machine-types";
+import { WASHING_MACHINE_DATA } from "@/constant/constant";
 
 import WashingMachineCard from "../Card/WashingMachine";
 
 const WashingMachineSection = () => {
-  // _MOCK
-  const WASHING_MACHINE_DATA: IWashingMachine[] = [
-    { name: "01", status: "ว่าง", weight: 10, used: 20, coins: ["10"] },
-    { name: "02", status: "ไม่ว่าง", weight: 15, used: 30, coins: ["5", "10"] },
-    {
-      name: "03",
-      status: "เครื่องมีปัญหา",
-      weight: 20,
-      used: 20,
-      coins: ["5", "10"],
-    },
-    { name: "04", status: "ไม่ว่าง", weight: 20, used: 40, coins: ["5", "10"] },
-    { name: "05", status: "ว่าง", weight: 10, used: 20, coins: ["5", "10"] },
-    { name: "06", status: "ว่าง", weight: 20, used: 40, coins: ["5", "10"] },
-  ];
-
   return (
-    <section>
+    <section id="washing">
       <div className={clsx([`container`, `space-y-4`])}>
         <p className={clsx(`text-center text-header-4 text-sky-300`)}>
           WASHING MACHINE
@@ -34,6 +18,7 @@ const WashingMachineSection = () => {
             return (
               <WashingMachineCard
                 key={washingMachine.name}
+                id={washingMachine.id}
                 name={washingMachine.name}
                 status={washingMachine.status}
                 weight={washingMachine.weight}

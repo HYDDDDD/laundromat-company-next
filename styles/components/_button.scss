@@ -65,7 +65,7 @@
 
   /* VARIANT */
   &.none {
-    @apply min-h-0 shadow-none hover:bg-gray-100;
+    @apply min-h-0 shadow-none;
   }
 
   &.primary {
@@ -169,7 +169,7 @@
     @include button-variant(
       theme("colors.danger.500"),
       theme("colors.danger.500"),
-      theme("colors.black"),
+      theme("colors.white"),
       theme("colors.danger.500 / 75%"),
       theme("colors.danger.500 / 75%")
     );
@@ -178,7 +178,7 @@
       @include button-variant(
         theme("colors.white / 0%"),
         theme("colors.danger.500"),
-        theme("colors.black"),
+        theme("colors.white"),
         theme("colors.danger.500"),
         theme("colors.white")
       );
@@ -188,7 +188,7 @@
       @include button-variant(
         theme("colors.danger.500 / 10%"),
         theme("colors.danger.500 / 0%"),
-        theme("colors.black"),
+        theme("colors.white"),
         theme("colors.danger.500"),
         theme("colors.danger.500"),
         theme("colors.white")

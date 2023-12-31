@@ -55,7 +55,7 @@
 }
 
 .card {
-  @apply w-full cursor-pointer rounded-md p-5 shadow-lg transition;
+  @apply w-full rounded-md p-5 shadow-lg transition;
 
   &.primary {
     @include card-variant(

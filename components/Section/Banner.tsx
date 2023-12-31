@@ -11,14 +11,13 @@ import Tag from "../UI/Tag";
 
 const BannerSection = () => {
   return (
-    <section>
+    <section id="home">
       <div
         className={clsx([
           `container`,
           `flex items-center justify-between`,
           `sm:flex-col-reverse sm:gap-10`,
         ])}
-        id="home"
       >
         <div className="space-y-8">
           <Tag space="sm">20% Discount for 1 Month Subscription</Tag>

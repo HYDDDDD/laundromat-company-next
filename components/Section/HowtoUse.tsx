@@ -34,7 +34,7 @@ const HowtoUseSection = () => {
     },
   ];
   return (
-    <section className={clsx(`space-y-4 bg-sky-50 py-10 text-center`)}>
+    <section id="howToUse" className={clsx(`space-y-4 bg-sky-50 py-10 text-center`)}>
       <p className={clsx(`text-header-4 text-sky-300`)}>HOW TO USE</p>
       <p className={clsx(`text-header-3 text-slate-700`)}>
         Get it done in 4 steps
