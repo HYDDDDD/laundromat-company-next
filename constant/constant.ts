@@ -1,3 +1,4 @@
+import { IUserProps } from "@/types/user.types";
 import { IWashingMachine } from "@/types/washing-machine-types";
 
 export const STATUS = ["ว่าง", "ไม่ว่าง", "เครื่องมีปัญหา"];
@@ -7,10 +8,11 @@ export const WEIGHT = [10, "15", "20"];
 export const COINS = [5, 10];
 
 // _MOCK
-export const USER = {
+export const USER: IUserProps = {
   userID: "1",
   name: "สมหญิง",
   myCoins: 100,
+  myWashing: [],
 };
 
 export const WASHING_MACHINE_DATA: IWashingMachine[] = [

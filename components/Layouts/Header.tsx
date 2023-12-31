@@ -12,8 +12,6 @@ import ArrowDown from "@/public/arrow-down-png.png";
 import BubblePng from "@/public/bubble.png";
 import MenuPng from "@/public/menu-png.png";
 
-import Button from "../UI/Button";
-
 const Header = () => {
   // _Path
   const pathName = usePathname();

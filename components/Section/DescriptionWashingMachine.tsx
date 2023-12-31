@@ -1,6 +1,7 @@
 "use client";
 
 import React, { Fragment, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 import clsx from "clsx";
 import Image from "next/image";
@@ -14,6 +15,7 @@ import { IWashingMachine } from "@/types/washing-machine-types";
 
 import Button from "../UI/Button";
 import Card from "../UI/Card";
+import { handleAddMyWashingMachine } from "./_action/AddMyWashingMachine";
 import { PutCoins } from "./_action/UseCoins";
 
 interface IDescriptionWashingMachineSectionProps {
@@ -28,7 +30,16 @@ const DescriptionWashingMachineSection = ({
 
   // _State
   const [myCoins, setMyCoins] = useState<number>(USER.myCoins);
+  const [myWashing, setMyWashing] = useState<string[]>([]);
   const [useCoins, setUseCoins] = useState<number>(0);
+
+  // _Notify
+  const notify = () =>
+    toast.success("Success !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+
+  console.log(myWashing);
 
   return (
     <section>
@@ -53,10 +64,12 @@ const DescriptionWashingMachineSection = ({
               />
 
               <Card className={clsx(`space-y-5 bg-sky-50`)}>
-                <p className={clsx(`text-body-18`)}>เครื่องที่ {data.name}</p>
+                <p className={clsx(`text-body-18`)}>
+                  Machine number {data.name}
+                </p>
 
                 <div className={clsx(`flex items-center space-x-5`)}>
-                  <p>ความจุ {data.weight} kg</p>
+                  <p>Weight {data.weight} kg</p>
 
                   <div className={clsx(`flex items-center space-x-2`)}>
                     <Image
@@ -72,7 +85,7 @@ const DescriptionWashingMachineSection = ({
                 <div
                   className={clsx(`flex items-center space-x-2 text-body-18`)}
                 >
-                  <p>ใช้ {data.used} coins</p>
+                  <p>Use {data.used} coins</p>
                   <p
                     className={clsx(
                       useCoins === data.used
@@ -80,7 +93,7 @@ const DescriptionWashingMachineSection = ({
                         : `text-red-500`,
                     )}
                   >
-                    ต้องการอีก {data.used - useCoins} coins
+                    want {data.used - useCoins} coins
                   </p>
                 </div>
 
@@ -90,7 +103,7 @@ const DescriptionWashingMachineSection = ({
                   )}
                 >
                   <p>
-                    Coins ของฉัน{" "}
+                    My coins{" "}
                     <span className={clsx(`text-body-16`)}>{myCoins}</span>{" "}
                     coins
                   </p>
@@ -127,9 +140,20 @@ const DescriptionWashingMachineSection = ({
                           )}
                       </Fragment>
                     ) : (
-                      <Button variant="primary" className={clsx(`w-full`)}>
-                        Wash !
-                      </Button>
+                      <Fragment>
+                        {!myWashing.includes(data.id) && (
+                          <Button
+                            variant="primary"
+                            className={clsx(`w-full`)}
+                            onClick={() => {
+                              handleAddMyWashingMachine(data.id, setMyWashing);
+                              notify();
+                            }}
+                          >
+                            Wash !
+                          </Button>
+                        )}
+                      </Fragment>
                     )}
                   </div>
                 </div>
@@ -137,6 +161,7 @@ const DescriptionWashingMachineSection = ({
             </div>
           );
         })}
+      <ToastContainer />
     </section>
   );
 };

@@ -37,7 +37,7 @@ const WashingMachineCard = ({
             />
             <div className={clsx(`flex w-full flex-col justify-center`)}>
               <div className={clsx([`flex items-center justify-between`])}>
-                <p className={clsx(`text-body-16`)}>เครื่องที่ {name}</p>
+                <p className={clsx(`text-body-16`)}>Machine number {name}</p>
                 <p
                   className={clsx(`text-body-16`, {
                     [`text-success-500`]: status === "ว่าง",
@@ -47,13 +47,17 @@ const WashingMachineCard = ({
                 </p>
               </div>
 
-              <p>ความจุ {weight} kg</p>
               <p>
-                เครื่องนี้ใช้{" "}
-                <span className={clsx(`text-body-16`)}>{used}</span> coins{" "}
+                Weight <span className={clsx(`text-body-16`)}>{weight}</span> kg
               </p>
               <p>
-                เครื่องนี้สามารถใช้เหรียญ <span>{coins.join(" , ")}</span>
+                Use <span className={clsx(`text-body-16`)}>{used}</span> coins{" "}
+              </p>
+              <p>
+                This machine can use coins{" "}
+                <span className={clsx(`text-body-16`)}>
+                  {coins.join(" , ")}
+                </span>
               </p>
             </div>
           </Card>
@@ -76,7 +80,7 @@ const WashingMachineCard = ({
           />
           <div className={clsx(`flex w-full flex-col justify-center`)}>
             <div className={clsx([`flex items-center justify-between`])}>
-              <p className={clsx(`text-body-16`)}>เครื่องที่ {name}</p>
+              <p className={clsx(`text-body-16`)}>Machine number {name}</p>
               <p
                 className={clsx(
                   `text-body-16`,
@@ -87,14 +91,16 @@ const WashingMachineCard = ({
                 {status}
               </p>
             </div>
-            <p>ความจุ {weight} kg</p>
             <p>
-              เครื่องนี้ใช้ <span className={clsx(`text-body-16`)}>{used}</span>{" "}
-              coins{" "}
+              Weight <span className={clsx(`text-body-16`)}>{weight}</span> kg
+            </p>
+            <p>
+              Use<span className={clsx(`text-body-16`)}>{used}</span> coins{" "}
             </p>
 
             <p>
-              เครื่องนี้สามารถใช้เหรียญ <span>{coins.join(" , ")}</span>
+              This machine can use coins{" "}
+              <span className={clsx(`text-body-16`)}>{coins.join(" , ")}</span>
             </p>
           </div>
         </Card>
