@@ -14,9 +14,16 @@ const SelectWashingMachineIcon = () => {
         alt="tap png icon"
         width={120}
         height={120}
+        priority
       />
       <div className={clsx(`flex items-end justify-end`)}>
-        <Image src={TapPng} alt="tap png icon" width={45} height={45} />
+        <Image
+          src={TapPng}
+          alt="tap png icon"
+          width={45}
+          height={45}
+          priority
+        />
       </div>
     </div>
   );

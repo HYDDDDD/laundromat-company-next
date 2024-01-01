@@ -18,7 +18,13 @@ const CoinIcon = ({ text, className, ...props }: ICoinIconProps) => {
         { ...props },
       )}
     >
-      <Image src={CoinPng} alt="coin png icon" width={96} height={96} />
+      <Image
+        src={CoinPng}
+        alt="coin png icon"
+        width={96}
+        height={96}
+        priority
+      />
       <p className={clsx(`absolute text-body-20`)}>{text}</p>
     </div>
   );

@@ -66,6 +66,7 @@ const BannerSection = () => {
             width={280}
             height={280}
             className={clsx(`relative z-20 lg:h-44 lg:w-44`)}
+            priority
           />
 
           <div

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import clsx from "clsx";
@@ -16,6 +16,7 @@ import { IWashingMachine } from "@/types/washing-machine-types";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import { handleAddMyWashingMachine } from "./_action/AddMyWashingMachine";
+import { handleWashingMachineTimer } from "./_action/Timer";
 import { PutCoins } from "./_action/UseCoins";
 
 interface IDescriptionWashingMachineSectionProps {
@@ -31,6 +32,8 @@ const DescriptionWashingMachineSection = ({
   // _State
   const [myCoins, setMyCoins] = useState<number>(USER.myCoins);
   const [myWashing, setMyWashing] = useState<string[]>([]);
+  const [timer, setTimer] = useState<string>("");
+  const [timeOut, setTimeOut] = useState<boolean>(false);
   const [useCoins, setUseCoins] = useState<number>(0);
 
   // _Notify
@@ -38,6 +41,15 @@ const DescriptionWashingMachineSection = ({
     toast.success("Success !", {
       position: toast.POSITION.TOP_RIGHT,
     });
+
+  // _Effect
+  useEffect(() => {
+    if (timeOut) {
+      toast.success("The washing machine is finished !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  }, [timeOut]);
 
   return (
     <section>
@@ -59,6 +71,7 @@ const DescriptionWashingMachineSection = ({
                 alt="washing machine png icon"
                 width={240}
                 height={240}
+                priority
               />
 
               <Card className={clsx(`space-y-5 bg-sky-50`)}>
@@ -75,6 +88,7 @@ const DescriptionWashingMachineSection = ({
                       alt="coin png icon"
                       width={25}
                       height={25}
+                      priority
                     />
                     <p>{data.coins.join(" , ")}</p>
                   </div>
@@ -149,6 +163,11 @@ const DescriptionWashingMachineSection = ({
                               variant="primary"
                               className={clsx(`w-full`)}
                               onClick={() => {
+                                handleWashingMachineTimer(
+                                  data.timer,
+                                  setTimer,
+                                  setTimeOut,
+                                );
                                 handleAddMyWashingMachine(
                                   data.id,
                                   setMyWashing,
@@ -162,6 +181,13 @@ const DescriptionWashingMachineSection = ({
                         </Fragment>
                       )}
                     </div>
+                  )}
+                  {timeOut ? (
+                    <p className={clsx(`text-header-4 text-success-500`)}>
+                      The washing machine is finished.
+                    </p>
+                  ) : (
+                    <p>{timer}</p>
                   )}
                 </div>
               </Card>

@@ -5,4 +5,5 @@ export interface IWashingMachine {
   weight: number;
   used: number;
   coins: number[];
+  timer: number;
 }

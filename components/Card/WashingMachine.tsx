@@ -34,6 +34,7 @@ const WashingMachineCard = ({
               width={120}
               height={120}
               className={clsx([`lg:h-16 lg:w-16`])}
+              priority
             />
             <div className={clsx(`flex w-full flex-col justify-center`)}>
               <div className={clsx([`flex items-center justify-between`])}>

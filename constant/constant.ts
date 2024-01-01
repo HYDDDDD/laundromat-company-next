@@ -12,11 +12,18 @@ export const USER: IUserProps = {
   userID: "1",
   name: "สมหญิง",
   myCoins: 100,
-  myWashing: [],
 };
 
 export const WASHING_MACHINE_DATA: IWashingMachine[] = [
-  { id: "1", name: "01", status: "ว่าง", weight: 10, used: 20, coins: [10] },
+  {
+    id: "1",
+    name: "01",
+    status: "ว่าง",
+    weight: 10,
+    used: 20,
+    coins: [10],
+    timer: 1,
+  },
   {
     id: "2",
     name: "02",
@@ -24,6 +31,7 @@ export const WASHING_MACHINE_DATA: IWashingMachine[] = [
     weight: 15,
     used: 30,
     coins: [5, 10],
+    timer: 52,
   },
   {
     id: "3",
@@ -32,6 +40,7 @@ export const WASHING_MACHINE_DATA: IWashingMachine[] = [
     weight: 20,
     used: 20,
     coins: [5, 10],
+    timer: 62,
   },
   {
     id: "4",
@@ -40,6 +49,7 @@ export const WASHING_MACHINE_DATA: IWashingMachine[] = [
     weight: 20,
     used: 40,
     coins: [5, 10],
+    timer: 62,
   },
   {
     id: "5",
@@ -48,6 +58,7 @@ export const WASHING_MACHINE_DATA: IWashingMachine[] = [
     weight: 10,
     used: 20,
     coins: [5, 10],
+    timer: 40,
   },
   {
     id: "6",
@@ -56,5 +67,6 @@ export const WASHING_MACHINE_DATA: IWashingMachine[] = [
     weight: 20,
     used: 40,
     coins: [5, 10],
+    timer: 30,
   },
 ];

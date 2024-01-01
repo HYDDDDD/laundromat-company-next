@@ -11,6 +11,7 @@ const WashAndWaitIcon = () => {
       alt="wait wash png icon"
       width={120}
       height={120}
+      priority
     />
   );
 };

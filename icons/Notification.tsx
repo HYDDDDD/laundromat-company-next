@@ -11,6 +11,7 @@ const NotificationIcon = () => {
       alt="notification png icon"
       width={120}
       height={120}
+      priority
     />
   );
 };

@@ -36,6 +36,7 @@ const Header = () => {
                 alt="bubble png icon"
                 width={50}
                 height={50}
+                priority
               />
               <p className={clsx([`text-header-4 text-blue-400`])}>Laundry</p>
             </div>
@@ -52,6 +53,7 @@ const Header = () => {
                   alt="arrow domn png icon"
                   width={25}
                   height={25}
+                  priority
                 />
               </div>
             ) : (
@@ -63,6 +65,7 @@ const Header = () => {
                       alt="menu png icon"
                       width={25}
                       height={25}
+                      priority
                     />
                   </div>
                 )}
