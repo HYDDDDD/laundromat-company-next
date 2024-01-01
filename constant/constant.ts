@@ -22,7 +22,7 @@ export const WASHING_MACHINE_DATA: IWashingMachine[] = [
     weight: 10,
     used: 20,
     coins: [10],
-    timer: 1,
+    timer: 2,
   },
   {
     id: "2",

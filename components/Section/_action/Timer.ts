@@ -2,6 +2,7 @@ export const handleWashingMachineTimer = (
   count: number,
   setTimer: React.Dispatch<React.SetStateAction<string>>,
   setTimeOut: React.Dispatch<React.SetStateAction<boolean>>,
+  setTimeSoon: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
   let now = new Date().getTime();
   let timer = now + count * 60000; // แปลงนาทีเป็นวินาที
@@ -18,6 +19,10 @@ export const handleWashingMachineTimer = (
     if (distance < 0) {
       clearInterval(intervalId);
       setTimeOut(true);
+    }
+
+    if (minutes === 0) {
+      setTimeSoon(true);
     }
 
     // ไม่ให้ return -1 ออกไป

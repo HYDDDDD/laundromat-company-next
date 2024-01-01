@@ -34,6 +34,7 @@ const DescriptionWashingMachineSection = ({
   const [myWashing, setMyWashing] = useState<string[]>([]);
   const [timer, setTimer] = useState<string>("");
   const [timeOut, setTimeOut] = useState<boolean>(false);
+  const [timeSoon, setTimeSoon] = useState<boolean>(false);
   const [useCoins, setUseCoins] = useState<number>(0);
 
   // _Notify
@@ -50,6 +51,14 @@ const DescriptionWashingMachineSection = ({
       });
     }
   }, [timeOut]);
+
+  useEffect(() => {
+    if (timeSoon) {
+      toast.warn("The washing machine will be finished soon. !", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  }, [timeSoon]);
 
   return (
     <section>
@@ -167,6 +176,7 @@ const DescriptionWashingMachineSection = ({
                                   data.timer,
                                   setTimer,
                                   setTimeOut,
+                                  setTimeSoon,
                                 );
                                 handleAddMyWashingMachine(
                                   data.id,
