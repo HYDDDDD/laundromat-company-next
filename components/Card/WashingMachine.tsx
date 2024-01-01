@@ -37,7 +37,9 @@ const WashingMachineCard = ({
             />
             <div className={clsx(`flex w-full flex-col justify-center`)}>
               <div className={clsx([`flex items-center justify-between`])}>
-                <p className={clsx(`text-body-16`)}>Machine number {name}</p>
+                <p className={clsx(`text-body-16 text-blue-500`)}>
+                  Machine no. {name}
+                </p>
                 <p
                   className={clsx(`text-body-16`, {
                     [`text-success-500`]: status === "ว่าง",
@@ -80,7 +82,9 @@ const WashingMachineCard = ({
           />
           <div className={clsx(`flex w-full flex-col justify-center`)}>
             <div className={clsx([`flex items-center justify-between`])}>
-              <p className={clsx(`text-body-16`)}>Machine number {name}</p>
+              <p className={clsx(`text-body-16 text-blue-500`)}>
+                Machine no. {name}
+              </p>
               <p
                 className={clsx(
                   `text-body-16`,

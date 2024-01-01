@@ -59,7 +59,7 @@ const BannerSection = () => {
             </div>
           </div>
         </div>
-        <div className={clsx([``])}>
+        <div className={clsx([`flex items-center justify-center`])}>
           <Image
             src={WashingMachineColorPng}
             alt="washing machine png"
@@ -70,7 +70,7 @@ const BannerSection = () => {
 
           <div
             className={clsx([
-              `absolute right-0 top-20 h-80 w-80 rounded-full bg-sky-200`,
+              `absolute h-80 w-80 rounded-full bg-sky-200`,
               `lg:h-44 lg:w-44`,
             ])}
           ></div>

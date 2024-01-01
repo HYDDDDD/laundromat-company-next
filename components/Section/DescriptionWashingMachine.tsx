@@ -39,8 +39,6 @@ const DescriptionWashingMachineSection = ({
       position: toast.POSITION.TOP_RIGHT,
     });
 
-  console.log(myWashing);
-
   return (
     <section>
       {datas
@@ -86,15 +84,19 @@ const DescriptionWashingMachineSection = ({
                   className={clsx(`flex items-center space-x-2 text-body-18`)}
                 >
                   <p>Use {data.used} coins</p>
-                  <p
-                    className={clsx(
-                      useCoins === data.used
-                        ? `text-success-500`
-                        : `text-red-500`,
-                    )}
-                  >
-                    want {data.used - useCoins} coins
-                  </p>
+                  {myCoins >= data.used - useCoins ? (
+                    <p
+                      className={clsx(
+                        useCoins === data.used
+                          ? `text-success-500`
+                          : `text-red-500`,
+                      )}
+                    >
+                      want {data.used - useCoins} coins
+                    </p>
+                  ) : (
+                    <p className={clsx(`text-red-500`)}>Not enough coins.</p>
+                  )}
                 </div>
 
                 <div
@@ -107,55 +109,60 @@ const DescriptionWashingMachineSection = ({
                     <span className={clsx(`text-body-16`)}>{myCoins}</span>{" "}
                     coins
                   </p>
-                  <div className={clsx(`flex items-center space-x-2`)}>
-                    {data.used !== useCoins ? (
-                      <Fragment>
-                        {data.coins.includes(5) &&
-                          data.used - useCoins >= 5 && (
+                  {myCoins >= data.used - useCoins && (
+                    <div className={clsx(`flex items-center space-x-2`)}>
+                      {data.used !== useCoins ? (
+                        <Fragment>
+                          {data.coins.includes(5) &&
+                            data.used - useCoins >= 5 && (
+                              <Button
+                                variant="none"
+                                onClick={() =>
+                                  PutCoins(5, setUseCoins, setMyCoins)
+                                }
+                              >
+                                <CoinIcon
+                                  text="5"
+                                  className={clsx(`hover:bg-red-500`)}
+                                />
+                              </Button>
+                            )}
+                          {data.coins.includes(10) &&
+                            data.used - useCoins >= 10 && (
+                              <Button
+                                variant="none"
+                                onClick={() =>
+                                  PutCoins(10, setUseCoins, setMyCoins)
+                                }
+                              >
+                                <CoinIcon
+                                  text="10"
+                                  className={clsx(`hover:bg-red-500`)}
+                                />
+                              </Button>
+                            )}
+                        </Fragment>
+                      ) : (
+                        <Fragment>
+                          {!myWashing.includes(data.id) && (
                             <Button
-                              variant="none"
-                              onClick={() =>
-                                PutCoins(5, setUseCoins, setMyCoins)
-                              }
+                              variant="primary"
+                              className={clsx(`w-full`)}
+                              onClick={() => {
+                                handleAddMyWashingMachine(
+                                  data.id,
+                                  setMyWashing,
+                                );
+                                notify();
+                              }}
                             >
-                              <CoinIcon
-                                text="5"
-                                className={clsx(`hover:bg-red-500`)}
-                              />
+                              Wash !
                             </Button>
                           )}
-                        {data.coins.includes(10) &&
-                          data.used - useCoins >= 10 && (
-                            <Button
-                              variant="none"
-                              onClick={() =>
-                                PutCoins(10, setUseCoins, setMyCoins)
-                              }
-                            >
-                              <CoinIcon
-                                text="10"
-                                className={clsx(`hover:bg-red-500`)}
-                              />
-                            </Button>
-                          )}
-                      </Fragment>
-                    ) : (
-                      <Fragment>
-                        {!myWashing.includes(data.id) && (
-                          <Button
-                            variant="primary"
-                            className={clsx(`w-full`)}
-                            onClick={() => {
-                              handleAddMyWashingMachine(data.id, setMyWashing);
-                              notify();
-                            }}
-                          >
-                            Wash !
-                          </Button>
-                        )}
-                      </Fragment>
-                    )}
-                  </div>
+                        </Fragment>
+                      )}
+                    </div>
+                  )}
                 </div>
               </Card>
             </div>
