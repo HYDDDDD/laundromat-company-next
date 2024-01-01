@@ -24,6 +24,7 @@ const WashingMachineSection = () => {
                 weight={washingMachine.weight}
                 used={washingMachine.used}
                 coins={washingMachine.coins}
+                timer={washingMachine.timer}
               />
             );
           })}
