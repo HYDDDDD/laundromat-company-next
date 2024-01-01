@@ -11,7 +11,7 @@ export const COINS = [5, 10];
 export const USER: IUserProps = {
   userID: "1",
   name: "สมหญิง",
-  myCoins: 100,
+  myCoins: 20,
 };
 
 export const WASHING_MACHINE_DATA: IWashingMachine[] = [
@@ -22,7 +22,7 @@ export const WASHING_MACHINE_DATA: IWashingMachine[] = [
     weight: 10,
     used: 20,
     coins: [10],
-    timer: 2,
+    timer: 1,
   },
   {
     id: "2",
